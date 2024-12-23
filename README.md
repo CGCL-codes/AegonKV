@@ -7,4 +7,4 @@ This project provides implementation source code of AegonKV and evaluation scrip
 Folder `./AegonKV` contains the source code of AegonKV, you can build AegonKV according to the instructions in `./AegonKV/README.md`.
 
 ## Evaluation
-Folder `./Evalution` contains evaluation program and configurations that you can use to build and reproduce results according to the instructions in `./Evaluation/README.md`.
+Folder `./Evalution` contains evaluation program and configurations, you can build and reproduce evaluation results according to the instructions in `./Evaluation/README.md`.
