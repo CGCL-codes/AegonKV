@@ -3,7 +3,7 @@
 This repository is used to reproduce all the evaluation results in the AegonKV paper.
 This repository is forked from [YCSB-cpp](https://github.com/ls4154/YCSB-cpp.git).
 
-# Compilation
+## Compilation
 ```shell
 mkdir build
 cd build
@@ -15,7 +15,7 @@ make
 ## Running
 The evaluation in the paper use three kinds of workload: YCSB, Social Graph, and Twitter Cluster.
 
-### YCSB 
+### YCSB
 Load data and execute YCSB-A workload against AegonKV.
 ```shell
 ./ycsb \
