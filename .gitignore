@@ -1,0 +1,12 @@
+*.a
+*.o
+*.swp
+*_test
+titandb_bench
+titandb_stress
+
+build/
+Makefile
+.idea/
+.vscode/
+cmake-build*/
