@@ -1,5 +1,5 @@
 # AegonKV: A High Bandwidth, Low Tail Latency, and Low Storage Cost KV-Separated LSM Store with SmartSSD-based GC Offloading
-
+AegonKV is built on Titan, and this repository is forked from [tikv/titan](https://github.com/tikv/titan.git).
 ## Dependencies
 Hardware. We use a server with hardware dependencies shown below.
 ```
@@ -19,11 +19,10 @@ SmartSSD Development Target Platform (2021.1, https://www.xilinx.com/support/dow
 Python (3.8.10, https://www.python.org)
 ```
 ## Compilation
-AegonKV is built on Titan, and this repository is forked from [tikv/titan](https://github.com/tikv/titan.git).
 
 Follow three steps to build AegonKV: build RocksDB dependency (required by Titan), build AegonKV software side target, and build AegonKV FPGA hardware side target.
 
-*Before building hardware target, make sure the SmartSSD environment is configured correctly. Some useful test commands are in `./hardware/host/test_commands.sh`.*
+*Before building hardware target, make sure the SmartSSD environment is configured correctly. Some useful test commands are in [hardware/host/test_commands.sh](./hardware/host/test_commands.sh).*
 
 ```shell
 mkdir -p build

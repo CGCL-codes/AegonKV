@@ -63,7 +63,7 @@ python ../titandb/workload_prepare.py
   -p threadcount=16
 ```
 
-**More specific command scripts can be found in `titandb/script.sh` and `titandb/real-workload.sh`, and configurations can be found under `workloads` folder.**
+**More specific command scripts can be found in [titandb/script.sh](titandb/script.sh) and [titandb/real-workload.sh](titandb/real-workload.sh), and configurations can be found under [workloads](workloads) folder.**
 
 ## Result
 Five metrics throughput, tail latency, space usage, compaction I/O, and write stall are used in the paper.
@@ -84,7 +84,7 @@ rocksdb.compact.read.bytes COUNT : 40784350333
 rocksdb.compact.write.bytes COUNT : 38094450456
 rocksdb.stall.micros COUNT : 0
 ```
-You can get **space usage** with the following command, or use the real-time monitoring script we provide here (`titandb/size_util.py`).
+You can get **space usage** with the following command, or use the real-time monitoring script we provide here ([titandb/size_util.py](titandb/size_util.py)).
 ```shell
 du -sh ./
 ```

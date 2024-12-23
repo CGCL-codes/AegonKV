@@ -4,7 +4,7 @@ AegonKV is a "three-birds-one-stone" solution that comprehensively enhances the 
 This project provides implementation source code of AegonKV and evaluation scripts. 
 
 ## AegonKV
-Folder `./AegonKV` contains the source code of AegonKV, you can build AegonKV according to the instructions in `./AegonKV/README.md`.
+Folder [AegonKV](./AegonKV) contains the source code of AegonKV, you can build AegonKV according to the instructions in [AegonKV/README.md](./AegonKV/README.md).
 
 ## Evaluation
-Folder `./Evalution` contains evaluation program and configurations, you can build and reproduce evaluation results according to the instructions in `./Evaluation/README.md`.
+Folder [Evaluation](./Evaluation) contains evaluation program and configurations, you can build and reproduce evaluation results according to the instructions in [Evaluation/README.md](./Evaluation/README.md).
