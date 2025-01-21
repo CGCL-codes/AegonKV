@@ -3,6 +3,10 @@ AegonKV is a "three-birds-one-stone" solution that comprehensively enhances the 
 
 This project provides implementation source code of AegonKV and evaluation scripts.
 
+AegonKV is accepted by FAST'25, the detailed paper can be viewed [here](https://www.usenix.org/conference/fast25/presentation/duan).
+
+**Publications**: Zhuohui Duan, Hao Feng, Haikun Liu, Xiaofei Liao, Hai Jin, Bangyu Li. AegonKV: A High Bandwidth, Low Tail Latency, and Low Storage Cost KV-Separated LSM Store with SmartSSD-based GC Offloading.
+
 ## Build AegonKV
 Folder [AegonKV](./AegonKV) contains the source code of AegonKV, you can build AegonKV according to the instructions below (also in [AegonKV/README.md](./AegonKV/README.md)).
 ### Dependencies
