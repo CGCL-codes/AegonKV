@@ -15,6 +15,25 @@ make
 ## Running
 The evaluation in the paper use three kinds of workload: YCSB, Social Graph, and Twitter Cluster.
 
+### Configurations
+
+Running a test requires the use of two configuration files, the workload configuration and the system configuration.
+
+```
+1. You can find the workload configuration in the following file:
+YCSB: Evaluation/workloads/workload{a-f}
+Social Graph: Evaluation/workloads/workload_meta
+Twitter Cluster: Evaluation/workloads/workload_cluster # You need to modify the last configuration item to choose which cluster to use.
+
+2. You can find the system configuration in the following file:
+AegonKV: Evaluation/titandb/aegonkv.properties
+DiffKV: Evaluation/titandb/diffkv.properties
+Titan: Evaluation/titandb/titandb.properties
+RocksDB: Evaluation/rocksdb/rocksdb.properties
+BlobDB: Evaluation/rocksdb/rocksdb-blob.properties
+```
+
+
 ### YCSB
 Load data and execute YCSB-A workload against AegonKV.
 ```shell
@@ -63,9 +82,9 @@ python ../titandb/workload_prepare.py
   -p threadcount=16
 ```
 
-**More specific command scripts can be found in [titandb/script.sh](titandb/script.sh) and [titandb/real-workload.sh](titandb/real-workload.sh), and configurations can be found under [workloads](workloads) folder.**
+**More specific command scripts can be found in [titandb/script.sh](workloads/script.sh) and [titandb/real-workload.sh](workloads/real-workload.sh), and configurations can be found under [workloads](workloads) folder.**
 
-## Result
+## Result Analysis
 Five metrics throughput, tail latency, space usage, compaction I/O, and write stall are used in the paper.
 
 At the end of one run (mey take several hours), you will see the results in the following format (only the last few lines of the output to be used are captured here):
@@ -88,3 +107,4 @@ You can get **space usage** with the following command, or use the real-time mon
 ```shell
 du -sh ./
 ```
+We use the above method to manually record the results of each evaluation and plot the graphs in the paper.

@@ -7,16 +7,26 @@ AegonKV is accepted by FAST'25, the detailed paper can be viewed [here](https://
 
 **Publications**: Zhuohui Duan, Hao Feng, Haikun Liu, Xiaofei Liao, Hai Jin, Bangyu Li. AegonKV: A High Bandwidth, Low Tail Latency, and Low Storage Cost KV-Separated LSM Store with SmartSSD-based GC Offloading.
 
+
+
 ## Build AegonKV
+
 Folder [AegonKV](./AegonKV) contains the source code of AegonKV, you can build AegonKV according to the instructions below (also in [AegonKV/README.md](./AegonKV/README.md)).
 ### Dependencies
-Hardware. We use a server with hardware dependencies shown below.
+**Hardware**. We use a server with hardware dependencies shown below.
 ```
 [CPU]: 2 x 18-core 2.20GHz Intel Xeon Gold 5220 with two-way hyper-threading
 [DRAM]: 1 x 64 GB 2666 MHz DDR4 DRAM
 [SSD]: 1 x Samsung SmartSSD® [REQUIRED!]
 ```
-Software. Before compilation, it's essential that you have already installed software dependencies shown below.
+In particular, the SmartSSD environment can be verified with the following command.
+```shell
+xbutil examine # Get PCIe address of SmartSSD
+xbutil validate --device $(PCIe address of SmartSSD) # Verify SmartSSD
+xbutil reset --device $(PCIe address of SmartSSD) # Most of the time you can fix validation failures by resetting the environment
+```
+
+**Software**. Before compilation, it's essential that you have already installed software dependencies shown below.
 ```
 GCC (9.4.0, https://gcc.gnu.org)
 CMake (3.25.6, https://cmake.org)
@@ -38,7 +48,7 @@ cd AegonKV
 mkdir -p build
 cd build
 cmake -DROCKSDB_DIR=$(pwd)/../lib/rocksdb-6.29.tikv -DREAL_COMPILE=1 -DCMAKE_BUILD_TYPE=Debug ..
-# build RocksDB
+# build RocksDB dependency
 make -j rocksdb
 # build software
 make -j titan
@@ -64,6 +74,24 @@ make
 
 ### Running
 The evaluation in the paper use three kinds of workload: YCSB, Social Graph, and Twitter Cluster.
+
+#### Configurations
+
+Running a test requires the use of two configuration files, the workload configuration and the system configuration.
+
+```
+1. You can find the workload configuration in the following file:
+YCSB: Evaluation/workloads/workload{a-f}
+Social Graph: Evaluation/workloads/workload_meta
+Twitter Cluster: Evaluation/workloads/workload_cluster # You need to modify the last configuration item to choose which cluster to use.
+
+2. You can find the system configuration in the following file:
+AegonKV: Evaluation/titandb/aegonkv.properties
+DiffKV: Evaluation/titandb/diffkv.properties
+Titan: Evaluation/titandb/titandb.properties
+RocksDB: Evaluation/rocksdb/rocksdb.properties
+BlobDB: Evaluation/rocksdb/rocksdb-blob.properties
+```
 
 #### YCSB
 Load data and execute YCSB-A workload against AegonKV.
@@ -113,9 +141,9 @@ python ../titandb/workload_prepare.py
   -p threadcount=16
 ```
 
-**More specific command scripts can be found in [Evaluation/titandb/script.sh](Evaluation/titandb/script.sh) and [Evaluation/titandb/real-workload.sh](Evaluation/titandb/real-workload.sh), and configurations can be found under [Evaluation/workloads](Evaluation/workloads) folder.**
+**More specific command scripts can be found in [Evaluation/workloads/script-ycsb.md](Evaluation/workloads/script-ycsb.md) and [Evaluation/workloads/script-production.md](Evaluation/workloads/script-production.md).**
 
-### Result
+### Result Analysis
 Five metrics throughput, tail latency, space usage, compaction I/O, and write stall are used in the paper.
 
 At the end of one run (mey take several hours), you will see the results in the following format (only the last few lines of the output to be used are captured here):
@@ -138,3 +166,5 @@ You can get **space usage** with the following command, or use the real-time mon
 ```shell
 du -sh ./
 ```
+
+We use the above method to manually record the results of each evaluation and plot the graphs in the paper.

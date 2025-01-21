@@ -1,13 +1,20 @@
 # AegonKV: A High Bandwidth, Low Tail Latency, and Low Storage Cost KV-Separated LSM Store with SmartSSD-based GC Offloading
 AegonKV is built on Titan, and this repository is forked from [tikv/titan](https://github.com/tikv/titan.git).
-## Dependencies
-Hardware. We use a server with hardware dependencies shown below.
+### Dependencies
+**Hardware**. We use a server with hardware dependencies shown below.
 ```
 [CPU]: 2 x 18-core 2.20GHz Intel Xeon Gold 5220 with two-way hyper-threading
 [DRAM]: 1 x 64 GB 2666 MHz DDR4 DRAM
 [SSD]: 1 x Samsung SmartSSD® [REQUIRED!]
 ```
-Software. Before compilation, it's essential that you have already installed software dependencies shown below.
+In particular, the SmartSSD environment can be verified with the following command.
+```shell
+xbutil examine # Get PCIe address of SmartSSD
+xbutil validate --device $(PCIe address of SmartSSD) # Verify SmartSSD
+xbutil reset --device $(PCIe address of SmartSSD) # Most of the time you can fix validation failures by resetting the environment
+```
+
+**Software**. Before compilation, it's essential that you have already installed software dependencies shown below.
 ```
 GCC (9.4.0, https://gcc.gnu.org)
 CMake (3.25.6, https://cmake.org)
@@ -28,7 +35,7 @@ Follow three steps to build AegonKV: build RocksDB dependency (required by Titan
 mkdir -p build
 cd build
 cmake -DROCKSDB_DIR=$(pwd)/../lib/rocksdb-6.29.tikv -DREAL_COMPILE=1 -DCMAKE_BUILD_TYPE=Debug ..
-# build RocksDB
+# build RocksDB dependency
 make -j rocksdb
 # build software
 make -j titan
