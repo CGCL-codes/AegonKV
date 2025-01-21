@@ -82,7 +82,7 @@ python ../titandb/workload_prepare.py
   -p threadcount=16
 ```
 
-**More specific command scripts can be found in [titandb/script.sh](workloads/script.sh) and [titandb/real-workload.sh](workloads/real-workload.sh), and configurations can be found under [workloads](workloads) folder.**
+**More specific command scripts can be found in [titandb/script.sh](workloads/script-ycsb.md) and [titandb/real-workload.sh](workloads/script-production.md), and configurations can be found under [workloads](workloads) folder.**
 
 ## Result Analysis
 Five metrics throughput, tail latency, space usage, compaction I/O, and write stall are used in the paper.
@@ -107,4 +107,4 @@ You can get **space usage** with the following command, or use the real-time mon
 ```shell
 du -sh ./
 ```
-We use the above method to manually record the results of each evaluation and plot the graphs in the paper.
+You can also use the scripts under [Evaluation/analysis](analysis) to automatically get a summary of the data that reproduces the results of the paper.

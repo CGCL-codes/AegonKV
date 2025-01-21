@@ -167,4 +167,4 @@ You can get **space usage** with the following command, or use the real-time mon
 du -sh ./
 ```
 
-We use the above method to manually record the results of each evaluation and plot the graphs in the paper.
+You can also use the scripts under [Evaluation/analysis](Evaluation/analysis) to automatically get a summary of the data that reproduces the results of the paper.
