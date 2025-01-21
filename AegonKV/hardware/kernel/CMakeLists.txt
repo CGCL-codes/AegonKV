@@ -6,18 +6,12 @@ option(REAL_COMPILE "real compile or just for ide development." OFF)
 if (REAL_COMPILE)
     set(CMAKE_C_COMPILER "/home/Vitis/Vitis/2021.1/bin/v++")
     set(CMAKE_CXX_COMPILER "/home/Vitis/Vitis/2021.1/bin/v++")
-#    set(CMAKE_C_COMPILER "/home/hfeng/tool/Xilinx/Vitis/2022.2/bin/v++")
-#    set(CMAKE_CXX_COMPILER "/home/hfeng/tool/Xilinx/Vitis/2022.2/bin/v++")
-#    set(CMAKE_C_COMPILER "/home/Vitis/2021.1/bin/v++")
-#    set(CMAKE_CXX_COMPILER "/home/Vitis/2021.1/bin/v++")
     message(STATUS "compile for vitis")
 endif ()
 
 
 set(XILINX_XRT /opt/xilinx/xrt)
 set(XILINX_VITIS /home/Vitis/Vitis/2021.1/)
-#set(XILINX_VITIS /home/hfeng/tool/Xilinx/Vitis/2022.2/)
-#set(XILINX_VITIS /home/Vitis/2021.1/)
 
 #set(TARGET sw_emu)
 #set(TARGET hw_emu)

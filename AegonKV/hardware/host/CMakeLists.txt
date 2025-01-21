@@ -6,8 +6,6 @@ find_package(OpenCL REQUIRED)
 
 set(CMAKE_CXX_STANDARD 14)
 set(XILINX_XRT /opt/xilinx/xrt)
-#set(XILINX_VITIS /home/Vitis/Vitis/2021.1/)
-#set(XILINX_VITIS /home/hfeng/tool/Xilinx/Vitis/2022.2/)
 set(XILINX_VITIS /home/Vitis/2021.1/)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
